@@ -43,16 +43,6 @@ std::atomic<uint32_t> RTPSDomain::m_maxRTPSParticipantID(0);
 std::vector<RTPSDomain::t_p_RTPSParticipant> RTPSDomain::m_RTPSParticipants;
 std::set<uint32_t> RTPSDomain::m_RTPSParticipantIDs;
 
-RTPSDomain::RTPSDomain()
-{
-    srand (static_cast <unsigned> (time(0)));
-}
-
-RTPSDomain::~RTPSDomain()
-{
-
-}
-
 void RTPSDomain::stopAll()
 {
     std::lock_guard<std::recursive_mutex> guard(m_mutex);
