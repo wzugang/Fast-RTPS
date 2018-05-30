@@ -38,7 +38,8 @@ namespace eprosima {
 namespace fastrtps{
 namespace rtps {
 
-uint32_t RTPSDomain::m_maxRTPSParticipantID = 0;
+std::recursive_mutex RTPSDomain::m_mutex;
+std::atomic<uint32_t> RTPSDomain::m_maxRTPSParticipantID(0);
 std::vector<RTPSDomain::t_p_RTPSParticipant> RTPSDomain::m_RTPSParticipants;
 std::set<uint32_t> RTPSDomain::m_RTPSParticipantIDs;
 
@@ -54,6 +55,7 @@ RTPSDomain::~RTPSDomain()
 
 void RTPSDomain::stopAll()
 {
+    std::lock_guard<std::recursive_mutex> guard(m_mutex);
     logInfo(RTPS_PARTICIPANT,"DELETING ALL ENDPOINTS IN THIS DOMAIN");
 
     while(m_RTPSParticipants.size()>0)
@@ -67,6 +69,7 @@ void RTPSDomain::stopAll()
 RTPSParticipant* RTPSDomain::createParticipant(RTPSParticipantAttributes& PParam,
         RTPSParticipantListener* listen)
 {
+    std::lock_guard<std::recursive_mutex> guard(m_mutex);
     logInfo(RTPS_PARTICIPANT,"");
 
     if(PParam.builtin.leaseDuration < c_TimeInfinite && PParam.builtin.leaseDuration <= PParam.builtin.leaseDuration_announcementperiod) //TODO CHeckear si puedo ser infinito
@@ -170,6 +173,7 @@ bool RTPSDomain::removeRTPSParticipant(RTPSParticipant* p)
 {
     if(p!=nullptr)
     {
+        std::lock_guard<std::recursive_mutex> guard(m_mutex);
         for(auto it = m_RTPSParticipants.begin();it!= m_RTPSParticipants.end();++it)
         {
             if(it->second->getGuid().guidPrefix == p->getGuid().guidPrefix)
@@ -187,6 +191,7 @@ bool RTPSDomain::removeRTPSParticipant(RTPSParticipant* p)
 
 RTPSWriter* RTPSDomain::createRTPSWriter(RTPSParticipant* p, WriterAttributes& watt, WriterHistory* hist, WriterListener* listen)
 {
+    std::lock_guard<std::recursive_mutex> guard(m_mutex);
     for(auto it= m_RTPSParticipants.begin();it!=m_RTPSParticipants.end();++it)
     {
         if(it->first->getGuid().guidPrefix == p->getGuid().guidPrefix)
@@ -206,6 +211,7 @@ bool RTPSDomain::removeRTPSWriter(RTPSWriter* writer)
 {
     if(writer!=nullptr)
     {
+        std::lock_guard<std::recursive_mutex> guard(m_mutex);
         for(auto it= m_RTPSParticipants.begin();it!=m_RTPSParticipants.end();++it)
         {
             if(it->first->getGuid().guidPrefix == writer->getGuid().guidPrefix)
@@ -220,6 +226,7 @@ bool RTPSDomain::removeRTPSWriter(RTPSWriter* writer)
 RTPSReader* RTPSDomain::createRTPSReader(RTPSParticipant* p, ReaderAttributes& ratt,
         ReaderHistory* rhist, ReaderListener* rlisten)
 {
+    std::lock_guard<std::recursive_mutex> guard(m_mutex);
     for(auto it= m_RTPSParticipants.begin();it!=m_RTPSParticipants.end();++it)
     {
         if(it->first->getGuid().guidPrefix == p->getGuid().guidPrefix)
@@ -240,6 +247,7 @@ bool RTPSDomain::removeRTPSReader(RTPSReader* reader)
 {
     if(reader !=  nullptr)
     {
+        std::lock_guard<std::recursive_mutex> guard(m_mutex);
         for(auto it= m_RTPSParticipants.begin();it!=m_RTPSParticipants.end();++it)
         {
             if(it->first->getGuid().guidPrefix == reader->getGuid().guidPrefix)
