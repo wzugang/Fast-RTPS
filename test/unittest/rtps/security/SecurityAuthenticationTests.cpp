@@ -220,11 +220,11 @@ class SecurityAuthenticationTest : public ::testing::Test
 #if __BIG_ENDIAN__
             aux_msg.msg_endian = BIGEND;
             change->serializedPayload.encapsulation = PL_CDR_BE;
-            CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+            CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
             aux_msg.msg_endian = LITTLEEND;
             change->serializedPayload.encapsulation = PL_CDR_LE;
-            CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+            CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
             CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -283,11 +283,11 @@ class SecurityAuthenticationTest : public ::testing::Test
 #if __BIG_ENDIAN__
             aux_msg.msg_endian = BIGEND;
             change->serializedPayload.encapsulation = PL_CDR_BE;
-            CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+            CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
             aux_msg.msg_endian = LITTLEEND;
             change->serializedPayload.encapsulation = PL_CDR_LE;
-            CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+            CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
             CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -956,11 +956,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_not_re
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1001,11 +1001,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_bad_me
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1060,11 +1060,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_not_ex
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1112,11 +1112,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_fail_b
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1172,11 +1172,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_ok_beg
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1253,11 +1253,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_new_ch
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1317,11 +1317,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_add_ch
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1419,11 +1419,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_pendin
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1503,11 +1503,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_fail_p
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1561,11 +1561,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_ok_pro
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1636,11 +1636,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_proces
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1694,11 +1694,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_proces
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1774,11 +1774,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_proces
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1824,11 +1824,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_bad_re
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1873,11 +1873,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_bad_re
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1922,11 +1922,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_fail_p
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
@@ -1980,11 +1980,11 @@ TEST_F(SecurityAuthenticationTest, discovered_participant_process_message_ok_pro
 #if __BIG_ENDIAN__
     aux_msg.msg_endian = BIGEND;
     change->serializedPayload.encapsulation = PL_CDR_BE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_BE);
+    CDRMessage::addOctet(&aux_msg, CDR_BE);
 #else
     aux_msg.msg_endian = LITTLEEND;
     change->serializedPayload.encapsulation = PL_CDR_LE;
-    CDRMessage::addOctet(&aux_msg, PL_CDR_LE);
+    CDRMessage::addOctet(&aux_msg, CDR_LE);
 #endif
     CDRMessage::addUInt16(&aux_msg, 0);
 
